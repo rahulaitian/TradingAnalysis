@@ -1,49 +1,90 @@
-Sure, here is a simple calculator program in Python that performs addition, subtraction, division, and multiplication.
+Here is a simple way to create a scientific calculator in Python, using functions and loops for handling the user interaction:
 
-```python
+```Python
+import math
+
 def add(x, y):
-    return x + y
+   return x + y
 
 def subtract(x, y):
-    return x - y
+   return x - y
 
 def multiply(x, y):
-    return x * y
+   return x * y
 
 def divide(x, y):
-    if y == 0:
-        return "Error! Division by zero is not allowed."
-    else:
-        return x / y
+   if y == 0:
+       return "Error! Division by zero is not allowed."
+   return x / y
 
-def calculator():
-    print("Select operation:")
-    print("1.Addition")
-    print("2.Subtraction")
-    print("3.Multiplication")
-    print("4.Division")
+def exponent(x, y):
+   return x ** y
 
-    choice = input("\nEnter your choice(1/4): ")
+def sqrt(x):
+   return math.sqrt(x)
 
-    num1 = int(input("\nEnter first number: "))
-    num2 = int(input("\nEnter second number: "))
+def log(x):
+   return math.log(x)
 
-    if choice == '1':
-        print("\nThe result is: ", add(num1, num2))
+def sin(x):
+   return math.sin(x)
 
-    elif choice == '2':
-        print("\nThe result is: ", subtract(num1, num2))
+def cos(x):
+   return math.cos(x)
 
-    elif choice == '3':
-        print("\nThe result is: ", multiply(num1, num2))
+def tan(x):
+   return math.tan(x)
 
-    elif choice == '4':
-        print("\nThe result is: ", divide(num1, num2))
+while True:
+   print("\nChoose operation.")
+   print("1.Add")
+   print("2.Subtract")
+   print("3.Multiply")
+   print("4.Divide")
+   print("5.Power")
+   print("6.Root")
+   print("7.Logarithm")
+   print("8.Sin")
+   print("9.Cos")
+   print("10.Tan")
+   print("0.Exit")
 
-    else:
-        print("\nInvalid input")
+   choice = input("\nEnter choice: ")
 
-calculator()
+   if choice == '0':
+       break
+
+   num1 = float(input("\nEnter first number: "))
+
+   if choice == '6' or choice == '7' or choice == '8' or choice == '9' or choice == '10':
+       if num1 == 0:
+           print("Invalid input for this operation.")
+           continue
+   else:
+       num2 = float(input("\nEnter second number: "))
+
+   if choice == '1':
+       print("\nResult: ", add(num1, num2))
+   elif choice == '2':
+       print("\nResult: ", subtract(num1, num2))
+   elif choice == '3':
+       print("\nResult: ", multiply(num1, num2))
+   elif choice == '4':
+       print("\nResult: ", divide(num1, num2))
+   elif choice == '5':
+       print("\nResult: ", exponent(num1, num2))
+   elif choice == '6':
+       print("\nResult: ", sqrt(num1))
+   elif choice == '7':
+       print("\nResult: ", log(num1))
+   elif choice == '8':
+       print("\nResult: ", sin(num1)) 
+   elif choice == '9':
+       print("\nResult: ", cos(num1)) 
+   elif choice == '10':
+       print("\nResult: ", tan(num1)) 
+   else:
+       print("\nInvalid input!")
 ```
 
-In the above code, first we've defined separate functions for addition, subtraction, multiplication, and division. Then inside the `calculator` function, we take the user's choice of operation and the two numbers as input, perform the chosen operation using the appropriate function, and print the result. This code will keep running until it's manually stopped.
+With the program above, you can perform basic operations such as addition, subtraction, multiplication, and division. And you can also perform scientific operations such as exponentiation (raising to a power), square root, logarithm, sine, cosine, and tangent
