@@ -1,33 +1,66 @@
 import math
 
-def scientific_calculator():
-    operation = input("Enter +, -, *, /, sin, cos, tan, sqrt: ")
-    if operation in ['+', '-', '*', '/']:
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
-        if operation == '+':
-            result = num1 + num2
-        elif operation == '-':
-            result = num1 - num2
-        elif operation == '*':
-            result = num1 * num2
-        else:
-            result = num1 / num2
+def calculator():
+    print("Options:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Power")
+    print("6. Square root")
+    print("7. Logarithm")
+    print("8. Sine")
+    print("9. Cosine")
+    print("10. Tangent")
 
-    elif operation in ['sin', 'cos', 'tan']:
-        num = float(input("Enter the number: "))
-        if operation == 'sin':
-            result = math.sin(num)
-        elif operation == 'cos':
-            result = math.cos(num)
-        else:
-            result = math.tan(num)
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
+        print(x + y)
+
+    elif choice == "2":
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
+        print(x - y)
+
+    elif choice == "3":
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
+        print(x * y)
+
+    elif choice == "4":
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
+        print(x / y)
+
+    elif choice == "5":
+        x = int(input("Enter a number: "))
+        y = int(input("Enter the power: "))
+        print(math.pow(x, y))
+
+    elif choice == "6":
+        x = int(input("Enter a number: "))
+        print(math.sqrt(x))
+
+    elif choice == "7":
+        x = int(input("Enter a number: "))
+        print(math.log(x))
+
+    elif choice == "8":
+        x = int(input("Enter a number: "))
+        print(math.sin(math.radians(x)))
+
+    elif choice == "9":
+        x = int(input("Enter a number: "))
+        print(math.cos(math.radians(x)))
+
+    elif choice == "10":
+        x = int(input("Enter a number: "))
+        print(math.tan(math.radians(x)))
 
     else:
-        num = float(input("Enter the number: "))
-        result = math.sqrt(num)
+        print("Invalid input")
 
-    print("Result: ", result)
-    return result
-
-scientific_calculator()
+calculator()
