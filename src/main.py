@@ -1,64 +1,63 @@
-```python
 import math
+import cmath
 
-def scientific_calculator():
-    print("Welcome to the Scientific Calculator!")
-    print("Select operation:")
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
-    print("5. Power")
-    print("6. Square root")
-    print("7. Logarithm")
-    print("8. Sine")
-    print("9. Cosine")
-    print("10. Tangent")
-    
-    choice = int(input("Enter choice(1/2/3/4/5/6/7/8/9/10): "))
+class ScientificCalculator:
+    def __init__(self):
+        pass
 
-    if choice in range(1, 12):
-        num1 = float(input("Enter first number: "))
-             
-        if choice == 1:
-            num2 = float(input("Enter second number: "))
-            print(num1, "+", num2, "=", num1 + num2)
-                 
-        elif choice == 2:
-            num2 = float(input("Enter second number: "))
-            print(num1, "-", num2, "=", num1 - num2)
- 
-        elif choice == 3:
-            num2 = float(input("Enter second number: "))
-            print(num1, "*", num2, "=", num1 * num2)
- 
-        elif choice == 4:
-            num2 = float(input("Enter second number: "))
-            print(num1, "/", num2, "=", num1 / num2)
+    def add(self, num1, num2):
+        return num1 + num2
 
-        elif choice == 5:
-            num2 = float(input("Enter second number: "))
-            print(num1, "^", num2, "=", math.pow(num1, num2))
+    def subtract(self, num1, num2):
+        return num1 - num2
 
-        elif choice == 6:
-            print("Square root of", num1, "=", math.sqrt(num1))
+    def multiply(self, num1, num2):
+        return num1 * num2
 
-        elif choice == 7:
-            print("Logarithm of", num1, "=", math.log(num1))
+    def divide(self, num1, num2):
+        return num1 / num2
 
-        elif choice == 8:
-            print("Sine of", num1, "=", math.sin(num1))
+    def power(self, base, exponent):
+        return math.pow(base, exponent)
 
-        elif choice == 9:
-            print("Cosine of", num1, "=", math.cos(num1))
+    def log(self, num, base):
+        return math.log(num, base)
 
-        elif choice == 10:
-            print("Tangent of", num1, "=", math.tan(num1))
+    def sqrt(self, num):
+        return math.sqrt(num)
 
-        else:
-            print("Invalid input")
-    else:
-        print("Invalid input")
+    def sin(self, num):
+        return math.sin(num)
 
-scientific_calculator()
-```
+    def cos(self, num):
+        return math.cos(num)
+
+    def tan(self, num):
+        return math.tan(num)
+
+    def sinh(self, num):
+        return math.sinh(num)
+
+    def cosh(self, num):
+        return math.cosh(num)
+
+    def tanh(self, num):
+        return math.tanh(num)
+
+    def asin(self, num):
+        return math.asin(num)
+
+    def acos(self, num):
+        return math.acos(num)
+
+    def atan(self, num):
+        return math.atan(num)
+
+    def factorial(self, num):
+        return math.factorial(num)
+
+    def abs(self, num):
+        return abs(num)
+
+    def complex_conjugate(self, num):
+        return num.conjugate()
