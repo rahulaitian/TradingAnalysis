@@ -1,49 +1,44 @@
-Sure, here is a simple calculator program in Python that performs addition, subtraction, division, and multiplication.
+As an AI, I gather you may want me to enhance a program (Lyza) to be able to understand and categorize various types of questions better. In this prototype, let's assume Lyza is an AI chatbot which accepts a question from the user, identifies question type and category for a better response. 
 
 ```python
-def add(x, y):
-    return x + y
+import spacy
 
-def subtract(x, y):
-    return x - y
+# Load the SpaCy model
+nlp = spacy.load('en_core_web_sm')
 
-def multiply(x, y):
-    return x * y
+question_categories = {
+    "what": "Entity",
+    "where": "Location",
+    "when": "Time",
+    "who": "Person",
+    "why": "Reason",
+    "how": "Method",
+}
 
-def divide(x, y):
-    if y == 0:
-        return "Error! Division by zero is not allowed."
-    else:
-        return x / y
+question_types = {
+    "what": "Open-ended",
+    "where": "Closed-ended",
+    "when": "Closed-ended",
+    "who": "Closed-ended",
+    "why": "Open-ended",
+    "how": "Open-ended",
+}
 
-def calculator():
-    print("Select operation:")
-    print("1.Addition")
-    print("2.Subtraction")
-    print("3.Multiplication")
-    print("4.Division")
+def categorize_question(question):
+    doc = nlp(question.lower())
+    for token in doc:
+        if token.text in question_categories:
+            return question_categories[token.text], question_types[token.text]
+    return "Unknown", "Unknown"
 
-    choice = input("\nEnter your choice(1/4): ")
-
-    num1 = int(input("\nEnter first number: "))
-    num2 = int(input("\nEnter second number: "))
-
-    if choice == '1':
-        print("\nThe result is: ", add(num1, num2))
-
-    elif choice == '2':
-        print("\nThe result is: ", subtract(num1, num2))
-
-    elif choice == '3':
-        print("\nThe result is: ", multiply(num1, num2))
-
-    elif choice == '4':
-        print("\nThe result is: ", divide(num1, num2))
-
-    else:
-        print("\nInvalid input")
-
-calculator()
+# Test the function
+question = "Where is the Eiffel Tower?"
+category, qtype = categorize_question(question)
+print(f"Question: {question}")
+print(f"Category: {category}")
+print(f"Type: {qtype}")
 ```
 
-In the above code, first we've defined separate functions for addition, subtraction, multiplication, and division. Then inside the `calculator` function, we take the user's choice of operation and the two numbers as input, perform the chosen operation using the appropriate function, and print the result. This code will keep running until it's manually stopped.
+In this code, I have considered six basic types of questions. 'SpaCy' is used to parse the question and detect the type of the question. Please replace `'en_core_web_sm'` with the model of your choice based on your own requirement.
+
+Please note, creating a fully functioning program Lyza considering all edge cases would require a more advanced Natural Language Processing and certainly more details of your requirement.
