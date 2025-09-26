@@ -1,86 +1,58 @@
-Sure, I will provide a simple text-based scientific calculator in Python where users can carry out basic scientific calculations like addition, subtraction, multiplication, division, finding the square root, power, and calculation of trigonometric functions.
-
-```python
 import math
 
-def add(x, y):
-   return x + y
+class ScientificCalculator:
 
-def subtract(x, y):
-   return x - y
+    def __init__(self):
+        pass
 
-def multiply(x, y):
-   return x * y
+    def addition(self, a, b):
+        return a + b
 
-def divide(x, y):
-   return x / y
+    def subtraction(self, a, b):
+        return a - b
 
-def square_root(x):
-   return math.sqrt(x)
+    def multiplication(self, a, b):
+        return a * b
 
-def power(x, y):
-   return math.pow(x, y)
+    def division(self, a, b):
+        if b == 0:
+            return "Error: Division by zero!"
+        else:
+            return a / b
 
-def sin(x):
-   return math.sin(math.radians(x))
+    def sin(self, a):
+        return math.sin(math.radians(a))
 
-def cos(x):
-   return math.cos(math.radians(x))
+    def cos(self, a):
+        return math.cos(math.radians(a))
 
-def tan(x):
-   return math.tan(math.radians(x))
+    def tan(self, a):
+        return math.tan(math.radians(a))
 
-print("Select option.")
-print("1.Add")
-print("2.Subtract")
-print("3.Multiply")
-print("4.Divide")
-print("5.Square root")
-print("6.Power")
-print("7.Sin")
-print("8.Cos")
-print("9.Tan")
+    def sqrt(self, a):
+        if a < 0:
+            return "Error: Negative input!"
+        else:
+            return math.sqrt(a)
 
-while True:
-   choice = input("Enter choice(1/2/3/4/5/6/7/8/9): ")
+    def power(self, a, b):
+        return math.pow(a, b)
 
-   if choice in ('1', '2', '3', '4', '5', '6'):
-      num1 = float(input("Enter first number: "))
-      num2 = float(input("Enter second number: "))
-   
-   if choice in ('7', '8', '9'):
-      num1 = float(input("Enter the number: "))
+    def log(self, a, b):
+        return math.log(a, b)
 
-   if choice == '1':
-      print(num1, "+", num2, "=", add(num1, num2))
+    def exp(self, a):
+        return math.exp(a)
 
-   elif choice == '2':
-      print(num1, "-", num2, "=", subtract(num1, num2))
-
-   elif choice == '3':
-      print(num1, "*", num2, "=", multiply(num1, num2))
-
-   elif choice == '4':
-      print(num1, "/", num2, "=", divide(num1, num2))
-
-   elif choice == '5':
-      print("The square root of", num1, "is", square_root(num1))
-
-   elif choice == '6':
-      print(num1, "raised to the power", num2, "is", power(num1, num2))
-
-   elif choice == '7':
-      print("The Sin of", num1, "is", sin(num1))
-
-   elif choice == '8':
-      print("The Cos of", num1, "is", cos(num1))
-
-   elif choice == '9':
-      print("The Tan of", num1, "is", tan(num1))
-
-   next_calculation = input("Let's do next calculation? (yes/no): ")
-   if next_calculation == "no":
-     break
-```
-
-Please note that Python's trigonometric functions require the input in radians whereas we commonly measure angles in degrees.
+calculator = ScientificCalculator()
+print(calculator.addition(5,5))
+print(calculator.subtraction(10,5))
+print(calculator.multiplication(5,5))
+print(calculator.division(10,5))
+print(calculator.sin(30))
+print(calculator.cos(60))
+print(calculator.tan(45))
+print(calculator.sqrt(16))
+print(calculator.power(2,3))
+print(calculator.log(100,10))
+print(calculator.exp(2))
