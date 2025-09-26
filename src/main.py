@@ -1,63 +1,86 @@
 import math
-import cmath
 
-class ScientificCalculator:
-    def __init__(self):
-        pass
+def add(x, y):
+   return x + y
 
-    def add(self, num1, num2):
-        return num1 + num2
+def subtract(x, y):
+   return x - y
 
-    def subtract(self, num1, num2):
-        return num1 - num2
+def multiply(x, y):
+   return x * y
 
-    def multiply(self, num1, num2):
-        return num1 * num2
+def divide(x, y):
+   if y == 0:
+       return 'Infinity'
+   return x / y
 
-    def divide(self, num1, num2):
-        return num1 / num2
+def power(x, y):
+   return x**y
 
-    def power(self, base, exponent):
-        return math.pow(base, exponent)
+def sqrt(x):
+   return math.sqrt(x)
 
-    def log(self, num, base):
-        return math.log(num, base)
+def ln(x):
+   return math.log(x)
 
-    def sqrt(self, num):
-        return math.sqrt(num)
+def log(x):
+   return math.log10(x)
 
-    def sin(self, num):
-        return math.sin(num)
+def trig_sin(x):
+   return math.sin(x)
 
-    def cos(self, num):
-        return math.cos(num)
+def trig_cos(x):
+   return math.cos(x)
 
-    def tan(self, num):
-        return math.tan(num)
+def trig_tan(x):
+   return math.tan(x)
 
-    def sinh(self, num):
-        return math.sinh(num)
+def calculate():
+   operation = input('''
+Please type in the math operation you would like to complete:
++  for addition
+-  for subtraction
+*  for multiplication
+/  for division
+^  for power
+s  for sqrt root
+ln for natural log
+log for log base 10
+sin for sine
+cos for cosine
+tan for tangent
+''')
 
-    def cosh(self, num):
-        return math.cosh(num)
+   if operation in ['+', '-', '*', '/', '^']:
+       x = int(input('Enter your first number: '))
+       y = int(input('Enter your second number: '))
+       if operation == '+':
+           print(add(x, y))
+       elif operation == '-':
+           print(subtract(x, y))
+       elif operation == '*':
+           print(multiply(x, y))
+       elif operation == '/':
+           print(divide(x, y))
+       elif operation == '^':
+           print(power(x, y))
+   
+   elif operation in ['s', 'ln', 'log', 'sin', 'cos', 'tan']:
+       x = int(input('Enter your number: '))
+       if operation == 's':
+           print(sqrt(x))
+       elif operation == 'ln':
+           print(ln(x))
+       elif operation == 'log':
+           print(log(x))
+       elif operation == 'sin':
+           print(trig_sin(x))
+       elif operation == 'cos':
+           print(trig_cos(x))
+       elif operation == 'tan':
+           print(trig_tan(x))
 
-    def tanh(self, num):
-        return math.tanh(num)
-
-    def asin(self, num):
-        return math.asin(num)
-
-    def acos(self, num):
-        return math.acos(num)
-
-    def atan(self, num):
-        return math.atan(num)
-
-    def factorial(self, num):
-        return math.factorial(num)
-
-    def abs(self, num):
-        return abs(num)
-
-    def complex_conjugate(self, num):
-        return num.conjugate()
+   else:
+       print('Invalid operation')
+       
+calculate()
