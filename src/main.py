@@ -1,76 +1,33 @@
-Sure, here is a basic implementation of a scientific calculator with a very simple console interface. It provides operations like addition, subtraction, multiplication, division, square root, power, sin, cos, tan, etc.
-
-```python
+```
 import math
 
 def scientific_calculator():
-    print("Options: ")
-    print("Enter '+' for addition")
-    print("Enter '-' for subtraction")
-    print("Enter '*' for multiplication")
-    print("Enter '/' for division")
-    print("Enter 'sqrt' for square root")
-    print("Enter '**' for power")
-    print("Enter 'sin' for sin")
-    print("Enter 'cos' for cos")
-    print("Enter 'tan' for tan")
-    print("Enter 'exit' to quit")
+
+    function_dir = { '1':math.sin, '2':math.cos, '3':math.tan, '4':math.asin, '5':math.acos, '6':math.atan, 
+                    '7':math.sinh, '8':math.cosh, '9':math.tanh, '10':math.sqrt, '11':math.log, '12':math.ceil,
+                    '13':math.floor, '14':math.fabs, '15':math.factorial, '16':math.exp, '17':math.pow}
 
     while True:
-        operation = input("Enter operation: ")
+        print("\nScientific Calculator Menu")
+        print("""1.SIN\n2.COS\n3.TAN\n4.ASIN\n5.ACOS\n6.ATAN\n7.SINH\n8.COSH\n9.TANH\n10.Square Root\n11.LOG\n12.CEIL\n13.FLOOR\n14.Absolute\n15.Factorial
+16.Exponent\n17.Power\n18.Exit\n""")
 
-        if operation == "+":
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
-            print("Result: ", num1 + num2)
-        
-        elif operation == "-":
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
-            print("Result: ", num1 - num2)
+        choice = input("\nEnter your choice: ")
 
-        elif operation == "*":
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
-            print("Result: ", num1 * num2)
-
-        elif operation == "/":
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
-            print("Result: ", num1 / num2)
-
-        elif operation == "sqrt":
-            num = float(input("Enter number: "))
-            print("Result: ", math.sqrt(num))
-
-        elif operation == "**":
-            num1 = float(input("Enter the number: "))
-            num2 = float(input("Enter the power: "))
-            print("Result: ", math.pow(num1, num2))
-
-        elif operation == "sin":
-            num = float(input("Enter the number: "))
-            print("Result: ", math.sin(math.radians(num))) 
-
-        elif operation == "cos":
-            num = float(input("Enter the number: "))
-            print("Result: ", math.cos(math.radians(num)))
-
-        elif operation == "tan":
-            num = float(input("Enter the number: "))
-            print("Result: ", math.tan(math.radians(num)))
-
-        elif operation == "exit":
-            print("Exiting the program...")
+        if choice=="18":
             break
-
+        elif choice in function_dir:
+            if choice=='17':
+                number1 = float(input("\nEnter first number: "))
+                number2 = float(input("\nEnter second number: "))
+                print("\nResult: ",function_dir[choice](number1, number2))
+            else:
+                number = float(input("\nEnter number: "))
+                print("\nResult: ",function_dir[choice](number))
         else:
-            print("Invalid operation. Try again.")
+            print("\nInvalid Choice!")
 
-scientific_calculator()
+if __name__ == "__main__":
+    scientific_calculator()
 ```
-This code will work in Python 3+. For the trigonometric functions sin, cos, and tan, the input is converted from degrees to radians using math.radians() in order to use the math module's trigonometric functions. 
-
-Remember to be careful when dividing, as dividing by zero will raise an error.
-
-Please note that this
+This script forms a scientific calculator with the help of Python's math module. Users can make their choice from the menu, and the relevant math function will be applied to either a single number input by the user or two input numbers in the case of the power calculation.
