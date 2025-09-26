@@ -1,44 +1,37 @@
-As an AI, I gather you may want me to enhance a program (Lyza) to be able to understand and categorize various types of questions better. In this prototype, let's assume Lyza is an AI chatbot which accepts a question from the user, identifies question type and category for a better response. 
+Given the nature of your task, it seems to be about development work for a chatbot (Lyza) with a specific set of question types and categories for more accurate answers. However, without knowing the current state of "Lyza" or the specific categories and question types you want to enhance it with, it's hard to provide an exact code. 
+
+Anyway, I'll provide a simplified code structure that may assist you. Assuming we are using a rule-based chatbot:
 
 ```python
-import spacy
+class Lyza:
+    def __init__(self):
+        self.supported_categories = ['category1', 'category2']
+        self.supported_question_types = ['type1', 'type2']
 
-# Load the SpaCy model
-nlp = spacy.load('en_core_web_sm')
+    def handle_question(self, category, question_type, question):
+        if category not in self.supported_categories:
+            return "I'm sorry, I don't support this category."
+        
+        if question_type not in self.supported_question_types:
+            return "I'm sorry, I don't support this type of question."
+        
+        return self.generate_answer(category, question_type, question)
+    
+    def generate_answer(self, category, question_type, question):
+        # Logic to generate answer based on category and question type
+        return "Generated answer."
 
-question_categories = {
-    "what": "Entity",
-    "where": "Location",
-    "when": "Time",
-    "who": "Person",
-    "why": "Reason",
-    "how": "Method",
-}
+lyza = Lyza()
 
-question_types = {
-    "what": "Open-ended",
-    "where": "Closed-ended",
-    "when": "Closed-ended",
-    "who": "Closed-ended",
-    "why": "Open-ended",
-    "how": "Open-ended",
-}
-
-def categorize_question(question):
-    doc = nlp(question.lower())
-    for token in doc:
-        if token.text in question_categories:
-            return question_categories[token.text], question_types[token.text]
-    return "Unknown", "Unknown"
-
-# Test the function
-question = "Where is the Eiffel Tower?"
-category, qtype = categorize_question(question)
-print(f"Question: {question}")
-print(f"Category: {category}")
-print(f"Type: {qtype}")
+# Example usage:
+response = lyza.handle_question('category1', 'type1', 'What is the weather like?')
+print(response)
 ```
 
-In this code, I have considered six basic types of questions. 'SpaCy' is used to parse the question and detect the type of the question. Please replace `'en_core_web_sm'` with the model of your choice based on your own requirement.
+In this code:
 
-Please note, creating a fully functioning program Lyza considering all edge cases would require a more advanced Natural Language Processing and certainly more details of your requirement.
+1. An instance of Lyza is created with supported question categories and types. 
+2. The method `handle_question` checks if Lyza supports the asked question's category and type. If not, it returns a message indicating the non-support. 
+3. If Lyza can handle the asked question, it generates an answer with the `generate_answer` method where you should place the logic of answer generation.
+
+Please adapt this according to your current chatbot's setup and requirements! The real implementation would be more complicated and might involve Natural Language Processing (NLP) libraries such as NLTK or frameworks like Rasa or Dialogflow from Google.
