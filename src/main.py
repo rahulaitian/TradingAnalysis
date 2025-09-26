@@ -3,13 +3,7 @@ import math
 class ScientificCalculator:
     def __init__(self):
         pass
-
-    def add(self, a, b):
-        return a + b
-
-    def subtract(self, a, b):
-        return a - b
-
+    
     def multiply(self, a, b):
         return a * b
 
@@ -22,6 +16,9 @@ class ScientificCalculator:
     def power(self, base, exponent):
         return math.pow(base, exponent)
 
+    def cube(self, a):
+        return a ** 3
+    
     def square_root(self, a):
         if a >= 0:
             return math.sqrt(a)
