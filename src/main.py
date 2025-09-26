@@ -1,66 +1,65 @@
 import math
 
-def calculator():
-    print("Options:")
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
-    print("5. Power")
-    print("6. Square root")
-    print("7. Logarithm")
-    print("8. Sine")
-    print("9. Cosine")
-    print("10. Tangent")
+def scientific_calculator():
+    print("Scientific Calculator\n")
+    print("Enter 'add' for addition")
+    print("Enter 'sub' for subtraction")
+    print("Enter 'mul' for multiplication")
+    print("Enter 'div' for division")
+    print("Enter 'sqr' for square")
+    print("Enter 'sqrt' for square root")
+    print("Enter 'exp' for exponent")
+    print("Enter 'log' for logarithm")
+    print("="*20)
+    
+    operation = input("Enter operation: ")
 
-    choice = input("Choose an option: ")
+    if operation == 'add':
+        n1 = float(input("Enter first number: "))
+        n2 = float(input("Enter second number: "))
+        result = n1 + n2
+        print("Result: ", result)
 
-    if choice == "1":
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        print(x + y)
+    elif operation == 'sub':
+        n1 = float(input("Enter first number: "))
+        n2 = float(input("Enter second number: "))
+        result = n1 - n2
+        print("Result: ", result)
 
-    elif choice == "2":
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        print(x - y)
+    elif operation == 'mul':
+        n1 = float(input("Enter first number: "))
+        n2 = float(input("Enter second number: "))
+        result = n1 * n2
+        print("Result: ", result)
 
-    elif choice == "3":
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        print(x * y)
+    elif operation == 'div':
+        n1 = float(input("Enter first number: "))
+        n2 = float(input("Enter second number: "))
+        result = n1 / n2
+        print("Result: ", result)
 
-    elif choice == "4":
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        print(x / y)
+    elif operation == 'sqr':
+        n1 = float(input("Enter number: "))
+        result = n1 ** 2
+        print("Result: ", result)
 
-    elif choice == "5":
-        x = int(input("Enter a number: "))
-        y = int(input("Enter the power: "))
-        print(math.pow(x, y))
+    elif operation == 'sqrt':
+        n1 = float(input("Enter number: "))
+        result = math.sqrt(n1)
+        print("Result: ", result)
 
-    elif choice == "6":
-        x = int(input("Enter a number: "))
-        print(math.sqrt(x))
-
-    elif choice == "7":
-        x = int(input("Enter a number: "))
-        print(math.log(x))
-
-    elif choice == "8":
-        x = int(input("Enter a number: "))
-        print(math.sin(math.radians(x)))
-
-    elif choice == "9":
-        x = int(input("Enter a number: "))
-        print(math.cos(math.radians(x)))
-
-    elif choice == "10":
-        x = int(input("Enter a number: "))
-        print(math.tan(math.radians(x)))
+    elif operation == 'exp':
+        n1 = float(input("Enter base: "))
+        n2 = float(input("Enter exponent: "))
+        result = n1 ** n2
+        print("Result: ", result)
+        
+    elif operation == 'log':
+        n1 = float(input("Enter number: "))
+        result = math.log(n1)
+        print("Result: ", result)
 
     else:
-        print("Invalid input")
+        print("Invalid operation")
 
-calculator()
+scientific_calculator()
