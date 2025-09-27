@@ -3,4 +3,4 @@ class Calculator:
         pass
 
     def cube(self, num):
-        return num * num * num
+        return num ** 3
